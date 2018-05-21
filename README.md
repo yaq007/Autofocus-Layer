@@ -46,9 +46,17 @@ Table 1: Dice scores shown in format mean (standard deviation).
 
 The code is developed under the follwing configurations.
 - 1-3 GPUs with at least 12G GPU memories. You can choose the number of GPUs used via ```[--num_gpus NUM_GPUS]```.
-- PyTorch 0.3.0 or higher is required to run the codes. You can install PyTorch through here: https://pytorch.org/.
-- Nibabel is used here for loading the NIFTI images. You can install it via ```pip install nibabel```.
-- SimpleITK is used for saving the output into images. You can install it via ```pip install SimpleITK```.
+- ```PyTorch 0.3.0``` or higher is required to run the codes. 
+- ```Nibabel``` is used here for loading the NIFTI images. 
+- ```SimpleITK``` is used for saving the output into images. 
+
+### Installation
+``` bash
+git clone 
+conda install pytorch torchvision -c pytorch
+pip install nibabel
+pip install SimpleITK
+```
 
 ## Quick Start
 First, you need to download the provided subset of BRATS dataset and all the trained models. You can simply run the following scripts:
