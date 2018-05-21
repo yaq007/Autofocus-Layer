@@ -26,6 +26,7 @@ you need to do a series of data pre-processing to the input images.
 - The intensity of the data within the RoI must be normalized to be zero-mean, unit-variance. For the BRATS dataset, each image must be normalized independently other than doing the normalization with the mean and variance of the whole training dataset.
 - Make sure the ground-truth labels for training and testing represent the background with zero. For example, we have four different 
 classes in the BRATS dataset, then the number of classes in this dataset will be 5, including the background (```[--num_classes 5]```) and number zero will be used to represent the background.
+- When you use the training code for your own data, please change the data path correspondingly.
 
 A small subset of the BRATS dataset (after all the above data pre-processing) is provided [here](http://cseweb.ucsd.edu/~yaq007/dataset.zip) to run the preset examples. 
 
@@ -59,7 +60,7 @@ pip install SimpleITK
 ```
 
 ## Quick Start
-First, you need to download the provided subset of BRATS dataset and all the trained models. You can simply run the following scripts:
+First, you need to download the provided subset of BRATS dataset and all the trained models. Please run
 ``` bash
 chmod +x download_sub_dataset.sh
 ./download_sub_daset.sh
@@ -82,8 +83,6 @@ python train.py --num_gpus NUM_GPUS --id MODEL_ID
 ```
 For the models like "Basic", you may only need one gpu to run the experiments. For the models like "AFN6", you may need to increase the number of GPUs to be 2 or 3. This depends on the GPU memory that you are using. Please check all the input arguments via ```python train.py -h```.
 
-When you use the training code for your own data, please make sure that you have already done the data pre-processing and changed the data path correspondingly.
-
 ## Evaluation
 You can evaluate a series of models saved after different epochs for one network on the validation set.
 ```bash
@@ -94,10 +93,10 @@ Please make sure that you have already provided a validation list in order to lo
 ## Testing
 ### Case 1
 If you have the ground truth for the testing data and want to see the accuracy (Dice score for BRATS dataset), you can use the following two testing codes:
-- ```test.py``` The input of the network will be small image segments as in the training stage and the predictions for all the image segments in one full image will be concatenated to construct a full prediction. 
-- ```test_full.py``` The input of the network will be a full image rather than a smaller image segment.
+- ```test.py``` The input of the network are small image segments as in the training stage.
+- ```test_full.py``` The input of the network is a full image rather than a smaller image segment.
 
-There might be small differences when you use these two different testing methods due to the padding in the convolutions. For the performance that we report above, we use the test.py to get all the results. 
+There might be small differences when you use these two different testing methods due to the padding in the convolutions. For the performance that we report above, we use the ```test.py``` to get all the results. 
 
 To test, you can simply run 
 ```bash
