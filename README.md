@@ -52,7 +52,7 @@ The code is developed under the follwing configurations.
 
 ### Installation
 ``` bash
-git clone 
+git clone https://github.com/yaq007/Autofocus-Layer.git
 conda install pytorch torchvision -c pytorch
 pip install nibabel
 pip install SimpleITK
