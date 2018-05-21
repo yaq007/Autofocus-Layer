@@ -77,14 +77,14 @@ You can change the number of used GPUs via ```[--num_gpus NUM_GPUS]``` and choos
 You can check all the input arguments via ```python test.py -h```.
 
 ## Training
-In the provided subset of dataset, we also provided 20 example images for training. You can simply run the following script to start training:
+In the provided subset of dataset, we also provided 20 example images for training. You can start training via:
 ```bash
 python train.py --num_gpus NUM_GPUS --id MODEL_ID 
 ```
 For the models like "Basic", you may only need one gpu to run the experiments. For the models like "AFN6", you may need to increase the number of GPUs to be 2 or 3. This depends on the GPU memory that you are using. Please check all the input arguments via ```python train.py -h```.
 
 ## Evaluation
-You can evaluate a series of models saved after different epochs for one network on the validation set.
+You can evaluate a series of models saved after different epochs for one network via.
 ```bash
 python val.py --num_gpus NUM_GPUS --id MODEL_ID 
 ```
@@ -92,11 +92,11 @@ Please make sure that you have already provided a validation list in order to lo
 
 ## Testing
 ### Case 1
-If you have the ground truth for the testing data and want to see the accuracy (Dice score for BRATS dataset), you can use the following two testing codes:
+If you have labels for test data and want to see the accuracy (e.g., Dice score for BRATS dataset), you can use the following two testing codes:
 - ```test.py``` The input of the network are small image segments as in the training stage.
 - ```test_full.py``` The input of the network is a full image rather than a smaller image segment.
 
-There might be small differences when you use these two different testing methods due to the padding in the convolutions. For the performance that we report above, we use the ```test.py``` to get all the results. 
+There are small differences of these two different testing methods due to the padding in the convolutions. For the performance that we report above, we use the ```test.py``` to get all the results. 
 
 To test, you can simply run 
 ```bash
@@ -106,7 +106,7 @@ python test.py/test_full.py --num_gpus NUM_GPUS --id MODEL_ID --test_epoch NUM_O
 You can increase the number of GPUs to speed up the evaluation process. You can also use ```--visualize``` action to save the prediction as an output image.
 
 ### Case 2
-If you do not have the ground truth for the testing data, you should use ```test_online.py``` to do the testing and save the output for online testing. For the BRATS dataset, you can simply run the following script to generate the predicted images and submit them to the online evaluation server.
+If you do not have ground truth for test data, you should use ```test_online.py``` to do the testing and save the output. For the BRATS dataset, you can simply run the following script to generate the predicted images and submit them to the online evaluation server.
 
 ```bash
 python test_online.py --num_gpus NUM_GPUS --id MODEL_ID --test_epoch NUM_OF_TEST_EPOCH --visualize
