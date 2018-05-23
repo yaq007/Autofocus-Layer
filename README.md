@@ -6,7 +6,7 @@ Autofocus layers adaptively change the size of the effective receptive field
 based on the processed context to generate more powerful features.
 The proposed autofocus layer can be easily integrated into existing networks to improve a model's representational power. 
 
-Here we apply the autofocus convolutional layer to deep neural networks for 3D semantic segmentation. We run experiments on the Brain Tumor Image Segmentation dataset (BRATS2015) as an example to show how the models work. In addition, we also implement a series of deep learning based models used for 3D Semantic Segmentation. The details of all the models implemented here can be found in our paper: [Autofocus Layer for Semantic Segmentation](https://arxiv.org/pdf/1805.08403.pdf).
+Here we apply the autofocus convolutional layer to deep neural networks for 3D semantic segmentation. We run experiments on the [Brain Tumor Image Segmentation dataset (BRATS2015)](https://www.smir.ch/BRATS/Start2015) as an example to show how the models work. In addition, we also implement a series of deep learning based models used for 3D Semantic Segmentation. The details of all the models implemented here can be found in our paper: [Autofocus Layer for Semantic Segmentation](https://arxiv.org/pdf/1805.08403.pdf).
 
 <img src="./src/autofocus.png" width="900"/>
 
