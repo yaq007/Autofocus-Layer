@@ -6,7 +6,7 @@ Autofocus layers adaptively change the size of the effective receptive field
 based on the processed context to generate more powerful features.
 The proposed autofocus layer can be easily integrated into existing networks to improve a model's representational power. 
 
-Here we apply the autofocus convolutional layer to deep neural networks for 3D semantic segmentation. We run experiments on the Brain Tumor Image Segmentation dataset (BRATS2015) as an example to show how the models work. In addition, we also implement a series of deep learning based models used for 3D Semantic Segmentation. The details of all the models implemented here can be found in our paper: Autofocus Layer for Semantic Segmentation.
+Here we apply the autofocus convolutional layer to deep neural networks for 3D semantic segmentation. We run experiments on the Brain Tumor Image Segmentation dataset (BRATS2015) as an example to show how the models work. In addition, we also implement a series of deep learning based models used for 3D Semantic Segmentation. The details of all the models implemented here can be found in our paper: [Autofocus Layer for Semantic Segmentation](https://arxiv.org/pdf/1805.08403.pdf).
 
 <img src="./src/autofocus.png" width="900"/>
 
@@ -15,7 +15,7 @@ Figure 1. An autofocus convolutional layer with four candidate dilation rates. (
 ## Citation
 If you find the code or the models implemented here are useful, please cite our paper:
 
-Autofocus Layer for Semantic Segmentation. 
+[Autofocus Layer for Semantic Segmentation](https://arxiv.org/pdf/1805.08403.pdf). 
 [Y. Qin](http://cseweb.ucsd.edu/~yaq007/), K. Kamnitsas, S. Ancha, J. Nanavati, G. Cottrell, A. Criminisi, A. Nori, MICCAI 2017.
 
 ## Data
@@ -31,7 +31,7 @@ classes in the BRATS dataset, then the number of classes in this dataset will be
 A small subset of the BRATS dataset (after all the above data pre-processing) is provided [here](http://cseweb.ucsd.edu/~yaq007/dataset.zip) to run the preset examples. 
 
 ## Supported Models
-Please refer "Autofocus Layer for Semantic Segmentation" for the details of all the supported models.
+Please refer "[Autofocus Layer for Semantic Segmentation](https://arxiv.org/pdf/1805.08403.pdf)" for the details of all the supported models.
 - Basic Model: half pathway of [DeepMedic](https://arxiv.org/abs/1603.05959) with the last 6 layers with dilation rates equal 2.
 - ASPP-c: adding an [ASPP](https://arxiv.org/abs/1606.00915) module on top of Basic model (parallel features are merged via concatenation).
 - ASPP-s: adding an [ASPP](https://arxiv.org/abs/1606.00915) module on top of Basic model (parallel features are merged via summation).
