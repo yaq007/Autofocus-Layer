@@ -109,8 +109,6 @@ def test(test_loader, model, args):
     print('Enhance score: %.4f, Core score: %.4f, Whole score: %.4f, Mean Dice score: %.4f' % (mean_dice[0], mean_dice[1], mean_dice[2], np.mean(mean_dice)))
     print('Enhance std: %.4f, Core std: %.4f, Whole std: %.4f, Mean Std: %.4f' % (std_dice[0], std_dice[1], std_dice[2], np.mean(std_dice)))                         
 
-    return score, pred_seg
-
 def main(args):
     # import network architecture
     builder = ModelBuilder()
