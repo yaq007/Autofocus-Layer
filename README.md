@@ -16,7 +16,7 @@ Figure 1. An autofocus convolutional layer with four candidate dilation rates. (
 If you find the code or the models implemented here are useful, please cite our paper:
 
 [Autofocus Layer for Semantic Segmentation](https://arxiv.org/pdf/1805.08403.pdf). 
-[Y. Qin](http://cseweb.ucsd.edu/~yaq007/), K. Kamnitsas, S. Ancha, J. Nanavati, G. Cottrell, A. Criminisi, A. Nori, MICCAI 2017.
+[Y. Qin](http://cseweb.ucsd.edu/~yaq007/), K. Kamnitsas, S. Ancha, J. Nanavati, G. Cottrell, A. Criminisi, A. Nori, MICCAI 2018.
 
 ## Data
 
