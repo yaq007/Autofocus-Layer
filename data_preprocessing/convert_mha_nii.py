@@ -1,12 +1,12 @@
 import SimpleITK as sitk
-trainf = open('testmha.txt', 'r')
-train_dir = trainf.readlines()
-testf = open('test2015.txt', 'r')
-test_dir = testf.readlines()
+data_mha = open('dataform_mha.txt', 'r')
+mha_dir = data_mha.readlines()
+data_nii = open('dataform_nii.txt', 'r')
+nii_dir = data_nii.readlines()
 
-for i in range(len(train_dir)):
+for i in range(len(mha_dir)):
     print(i)
-    path, _ = train_dir[i].split("\n")
-    savepath, _ = test_dir[i].split("\n")
+    path, _ = mha_dir[i].split("\n")
+    savepath, _ = nii_dir[i].split("\n")
     img = sitk.ReadImage(path)
     sitk.WriteImage(img, savepath)
