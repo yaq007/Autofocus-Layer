@@ -8,8 +8,7 @@ test_dir = testf.readlines()
 for i in range(int(len(test_dir))):
     i = i + 1
     print "image" + str(i)
-
-    # skip the mask
+	
     if i % 5 == 4:
         continue
 
