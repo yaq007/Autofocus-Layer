@@ -28,6 +28,8 @@ you need to do a series of data pre-processing to the input images.
 classes in the BRATS dataset, then the number of classes in this dataset will be 5, including the background (```[--num_classes 5]```) and number zero will be used to represent the background.
 - When you use the training code for your own data, please change the data path correspondingly.
 
+We provide the example codes for data preprocessing, including converting the data format, generating the masks and normalizing the input image. The corresponding text file is also provided to show the directory where the image are saved. You can create your own text file to save the image data path and change the corresponding code in the python scripts. The data normalization code is mainly derived from [DeepMedic](https://arxiv.org/abs/1603.05959).
+
 A small subset of the BRATS dataset (after all the above data pre-processing) is provided [here](http://cseweb.ucsd.edu/~yaq007/dataset.zip) to run the preset examples. 
 
 ## Supported Models
