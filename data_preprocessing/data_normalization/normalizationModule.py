@@ -95,7 +95,7 @@ def do_normalization(windowTitle,
 		normImgNpArr = normImgNpArr / (1.0*stdForNorm)
 		print("\tImage was normalized using: Mean=", meanForNorm, ", Std="), stdForNorm
 	
-    ### Save output ###
+        ### Save output ###
 	if saveOutput:
 		outputFilepath = channelToNormalizeFilepath
 		print(outputFilepath)
