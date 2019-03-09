@@ -12,7 +12,8 @@ def saveImageToANewNiiWithHeaderFromOther(	normalizedImageNpArray,
     hdr_for_orig_image = originalImageProxy.header
     affine_trans_to_ras = originalImageProxy.affine
     
-    newNormImg = nib.Nifti1Image(normalizedImageNpArray, affine_trans_to_ras) #Nifti Constructor. data is the image itself, dimensions x,y,z,time. The second argument is the affine RAS transf.
+    #Nifti Constructor. data is the image itself, dimensions x,y,z,time. The second argument is the affine RAS transf.
+    newNormImg = nib.Nifti1Image(normalizedImageNpArray, affine_trans_to_ras) 
     newNormImg.set_data_dtype(np.dtype(dtypeToSaveOutput))
     newNormImg.header.set_zooms(hdr_for_orig_image.get_zooms()[:3])
     
@@ -42,7 +43,7 @@ def do_normalization(windowTitle,
 			srcImgNpArr[boolPixelsWithIntBelowZero] = 0; #because for instance in Christian's  background was -1.
 		meanIntSrcImg = np.mean(srcImgNpArr); stdIntSrcImg = np.std(srcImgNpArr); maxIntSrcImg = np.max(srcImgNpArr)       
 	roiProxy = nib.load(roiFilepath)
-	roiNpArr = np.asarray(roiProxy.get_data()) #, dtype="int16")
+	roiNpArr = np.asarray(roiProxy.get_data()) 
 	boolRoiMask = roiNpArr>0
 	
 	srcIntsUnderRoi = srcImgNpArr[boolRoiMask] # This gets flattened automatically. It's a vector array.
@@ -56,8 +57,10 @@ def do_normalization(windowTitle,
 	stdForNorm = stdIntInRoi
 	print("\t\t*Stats for normalization changed to: Mean=", meanForNorm, ", Std="), stdForNorm
 	if lowHighCutoffPercentile is not None and lowHighCutoffPercentile != [] :
-		lowCutoff = np.percentile(srcIntsUnderRoi, lowHighCutoffPercentile[0]);		boolOverLowCutoff = srcImgNpArr > lowCutoff
-		highCutoff = np.percentile(srcIntsUnderRoi, lowHighCutoffPercentile[1]);	boolBelowHighCutoff = srcImgNpArr < highCutoff
+		lowCutoff = np.percentile(srcIntsUnderRoi, lowHighCutoffPercentile[0]);		
+		boolOverLowCutoff = srcImgNpArr > lowCutoff
+		highCutoff = np.percentile(srcIntsUnderRoi, lowHighCutoffPercentile[1]);	
+		boolBelowHighCutoff = srcImgNpArr < highCutoff
 		print("\t\tCutting off intensities with [percentiles] (within Roi). Cutoffs: Min=", lowCutoff ,", High="), highCutoff
 		boolMaskForStatsCalc = boolMaskForStatsCalc * boolOverLowCutoff * boolBelowHighCutoff
 		meanForNorm = np.mean(srcImgNpArr[boolMaskForStatsCalc])
@@ -65,9 +68,12 @@ def do_normalization(windowTitle,
 		print("\t\t*Stats for normalization changed to: Mean=", meanForNorm, ", Std="), stdForNorm
 
 	if lowHighCutoffTimesTheStd is not None and lowHighCutoffTimesTheStd != [] :
-		lowCutoff = meanIntInRoi - lowHighCutoffTimesTheStd[0] * stdIntInRoi;		boolOverLowCutoff = srcImgNpArr > lowCutoff
-		highCutoff = meanIntInRoi + lowHighCutoffTimesTheStd[1] * stdIntInRoi;		boolBelowHighCutoff = srcImgNpArr < highCutoff
+		lowCutoff = meanIntInRoi - lowHighCutoffTimesTheStd[0] * stdIntInRoi;		
+		boolOverLowCutoff = srcImgNpArr > lowCutoff
+		highCutoff = meanIntInRoi + lowHighCutoffTimesTheStd[1] * stdIntInRoi;		
+		boolBelowHighCutoff = srcImgNpArr < highCutoff
 		print("\t\tCutting off intensities with [std] (within Roi). Cutoffs: Min=", lowCutoff ,", High="), highCutoff
+
 		# The next 2 lines are for monitoring only. Could be deleted
 		boolInRoiAndWithinCutoff = boolRoiMask * boolOverLowCutoff * boolBelowHighCutoff
 		print("\t\t(In Roi, within THIS cutoff) Intensities Mean="), np.mean(srcImgNpArr[boolInRoiAndWithinCutoff]),", Std=", np.std(srcImgNpArr[boolInRoiAndWithinCutoff])
