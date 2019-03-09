@@ -90,7 +90,7 @@ def do_normalization(windowTitle,
 		stdForNorm = np.std(srcImgNpArr[boolMaskForStatsCalc])
 		print("\t\t*Stats for normalization changed to: Mean=", meanForNorm, ", Std="), stdForNorm
 	
-	# Apply the normalization
+	    # Apply the normalization
 		normImgNpArr = srcImgNpArr - meanForNorm
 		normImgNpArr = normImgNpArr / (1.0*stdForNorm)
 		print("\tImage was normalized using: Mean=", meanForNorm, ", Std="), stdForNorm
